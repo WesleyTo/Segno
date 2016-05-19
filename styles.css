@@ -6,6 +6,21 @@ ul{
 	margin: 0;
 	padding: 0;
 }
+ul, p, h5{
+	font-size: 4vmin;
+}
+h1 {
+	font-size: 10vmin;
+}
+h2 {
+	font-size: 8vmin;
+}
+h3 {
+	font-size: 6vmin;
+}
+h4 {
+	font-size: 5vmin;
+}
 .center{
 	text-align: center;
 	vertical-align: middle;
@@ -31,23 +46,37 @@ hr{
 	margin: 4vh 3vw 3vh 0;
 }
 
-
 /*=====================
  Chord Display Elements
 =====================*/
 .chordBlock{
 	color: white;
 	background-color: #3071A7;
-	height: 15vmin;
+	font-size: 5vmin;
 	width: 17vmin;
+	height: 15vmin;
+	line-height: 15vmin;
 	display: inline-block;
-	border: 1px solid LightSteelBlue;
+}
+#more{
+	color: white;
+	background: #3071A7;
+    background: -webkit-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+    background: -o-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+    background: -moz-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+    background: linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+	font-size: 6vmin;
 	border-radius: 1vmin;
+	font-size: 5vmin;
+	height: 7vmin;
+	line-height: 7vmin;
+}
+.chordBlock, #more{
+	cursor: pointer;
+	border: 1px solid LightSteelBlue;
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	text-align: center;
-	line-height: 15vmin;
-	font-size: 5vmin;
 	margin: 1vmin 0.25vmin 1vmin 0.25vmin;
 	transition: all 200ms ease-out;
 	-moz-transition: all 200ms ease-out;
@@ -59,7 +88,6 @@ hr{
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
-
 }
 .chordBlock:first-letter{
 	font-size: 6vmin;
@@ -74,30 +102,7 @@ hr{
 	right: 5vw;
 	z-index: 2;
 }
-#more{
-	color: white;
-	background: #3071A7;
-    background: -webkit-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
-    background: -o-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
-    background: -moz-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
-    background: linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
-	height: 15vmin;
-	width: 17vmin;
-	display: inline-block;
-	border: 1px solid LightSteelBlue;
-	border-radius: 1vmin;
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	text-align: center;
-	line-height: 15vmin;
-	font-size: 6vmin;
-	margin: 1vmin 0.25vmin 1vmin 0.25vmin;
-	transition: all 2000ms;
-	-moz-transition: all 2000ms;
-	-o-transition: all 2000ms;
-	-ie-transition: all 2000ms;
-	-webkit-transition: all 2000ms;
-}
+
 #directionsOverlay{
 	left: 0;
 	z-index: 0;
@@ -266,18 +271,28 @@ div.ui-slider-mini a.ui-slider-handle {
 }
 .ui-slider-handle .ui-btn-inner .ui-btn-text{
 	left: 1.5vmin;
+	top: -2.25vmin;
 	text-align: center;
+}
+.ui-header .ui-btn-inner{
+    font-size: 4vmin;
+}
+.ui-navbar li .ui-btn .ui-btn-inner {
+    padding: 1vmin;
+}
+.ui-header .ui-title, .ui-footer .ui-title {
+	font-size: 5vmin;
 }
 
 /*=====================
 Animation & Transforms
 =====================*/
 .spunY{
-		-webkit-transform: rotateY(180deg);
-		-moz-transform: rotateY(180deg);
-		-o-transform: rotateY(180deg);
-		-ie-transform: rotateY(180deg);
-		transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	-ie-transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
 .spinY{
 	animation: rotateHalfY 1s linear;

@@ -89,23 +89,17 @@ $(document).on("pageinit", "#home", function(){
 	});
 	$('#chords').on( "tap", ".chordBlock", function( event ) {
 		var newChord = nextChord($(this).data("type"), true);
-		console.log(newChord);
-        console.log("TAP");
-		$(this).html(newChord);
+		$(this).html(chordEntity(newChord));
 		$(this).data("type", newChord);
     });
 	$('#chords').on("swiperight", ".chordBlock", function( event ) {
 		var newChord = nextModality($(this).data("type"), true);
-		console.log(newChord);
-        console.log("SWIPE RIGHT");
-		$(this).html(newChord);
+		$(this).html(chordEntity(newChord));
 		$(this).data("type", newChord);
     });
 	$('#chords').on("swipeleft", ".chordBlock", function( event ) {
 		var newChord = nextModality($(this).data("type"), true);
-		console.log(newChord);
-        console.log("SWIPE LEFT");
-		$(this).html(newChord);
+		$(this).html(chordEntity(newChord));
 		$(this).data("type", newChord);
     });
 });
@@ -127,6 +121,7 @@ $(document).on('pagebeforeshow', '#info', function() {
 	// Hide title elements
 	$("#phonetic1").css('visibility','hidden');
 	$("#phonetic2").css('visibility','hidden');
+	$("#directions").css('visibility','hidden');
 	$("#accreditation").css('visibility','hidden');
 	// Show title elements with cascading delay
 	$("#pageTitle").css('visibility','hidden').css('visibility','visible').fadeIn("slow");
@@ -137,8 +132,11 @@ $(document).on('pagebeforeshow', '#info', function() {
 		$("#phonetic2").css('visibility','visible').hide().fadeIn("slow");
 	}, 1000);
 	setTimeout(function(){
-		$("#accreditation").css('visibility','visible').hide().fadeIn("slow");
+		$("#directions").css('visibility','visible').hide().fadeIn("slow");
 	}, 1500);
+	setTimeout(function(){
+		$("#accreditation").css('visibility','visible').hide().fadeIn("slow");
+	}, 2000);
 });
 
 
@@ -212,6 +210,10 @@ function nextChord(chord, next){
 	var nextTone = chords[index] + modality;
 	return nextTone;	
 }
+function chordEntity(chord){
+	var s = chord.replace("b", "&#9837;");
+	return $('<textarea />').html(s).text();;
+}
 function nextModality(chord, next){
 	var change = 1;
 	if (!next){ change = -1; }
@@ -236,7 +238,7 @@ function setVolume(){
 function loadExample(){
 	/* LOAD AN EXAMPLE CHORD PROGRESSION */
 	stopPlayback();
-	var choice = Math.floor(Math.random() * 5);
+	var choice = Math.floor(Math.random() * 6);
 	var title = '';
 	var chords = [];
 	switch (choice) {
@@ -255,6 +257,9 @@ function loadExample(){
 		case 4:
 			chords = ["G", "G", "G", "G", "C", "C", "D", "D", "G", "G", "G", "G", "C", "C", "D", "D", "Em", "Em", "D", "D", "C", "C", "G", "G", "Em", "Em", "D", "D", "C", "C", "G", "G", "Em", "Em", "G", "G", "Em", "Em", "G", "G", "Em", "Em", "D", "D", "G", "G", "C", "D"];
 			title = "Green Day - Time Of Your life";
+		case 5:
+			chords = ["D", "A", "Bm", "Gbm", "G", "D", "G", "A", "D", "A", "Bm", "Gbm", "G", "D", "G", "A", "D", "A", "Bm", "Gbm", "G", "D", "G", "A", "D", "A", "Bm", "Gbm", "G", "D", "G", "A"];
+			title = "Pachelbel - Canon In D";
 	}
 	loadChords(chords);
 	setTitle(title);
