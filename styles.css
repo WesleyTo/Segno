@@ -209,7 +209,7 @@ JQuery Mobile Overrides
     overflow:hidden;
 }
 .ui-footer{
-	height: 22vmin;
+	height: 19vmin;
 }
 .ui-footer .ui-btn{
 	height: 7vmin;
@@ -231,8 +231,7 @@ JQuery Mobile Overrides
 }
 .ui-footer .ui-btn-inner{
 	padding: 0;
-	line-height: 7vmin;
-	font-size: 4vmin;
+	line-height: 3.5vmin;
 }
 .ui-footer .ui-fullsize .ui-btn-inner{
 	padding: 0;
@@ -253,16 +252,14 @@ input.ui-input-text{
 div.ui-slider {
 	margin: 0 2vw 0 2vw;
 }
-div.ui-slider-mini {
-    height: 2.5vh;
-    margin-left: 2vh;
-    top: 3vh;
+div.ui-slider, div.ui-slider-track {
+    height: 2.5vmin;
 	text-align: center;
 }
-div.ui-slider-mini a.ui-slider-handle {
-    height: 5vh;
-    width: 5vh;
-    margin: -2.5vh 0 0 -2.5vh;
+.ui-slider-track .ui-btn.ui-slider-handle{
+    height: 3.5vmin;
+    width: 3.5vmin;
+    margin: -1.75vmin 0 0 -1.75vmin;
 	text-align: center;
 }
 .ui-slider-handle .ui-btn-inner{
@@ -270,9 +267,10 @@ div.ui-slider-mini a.ui-slider-handle {
 	text-align: center;
 }
 .ui-slider-handle .ui-btn-inner .ui-btn-text{
-	left: 1.5vmin;
-	top: -2.25vmin;
-	text-align: center;
+	top: -1.75vmin;
+}
+.ui-btn-inner .ui-btn-text{
+	font-size: 4vmin;
 }
 .ui-header .ui-btn-inner{
     font-size: 4vmin;
@@ -282,6 +280,9 @@ div.ui-slider-mini a.ui-slider-handle {
 }
 .ui-header .ui-title, .ui-footer .ui-title {
 	font-size: 5vmin;
+}
+.ui-slider-track{
+	margin: 0 10vmin 5vmin 10vmin;
 }
 
 /*=====================
