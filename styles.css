@@ -1,0 +1,319 @@
+/*=====================
+	Misc Elements
+=====================*/
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.center{
+	text-align: center;
+	vertical-align: middle;
+	margin: auto;
+}
+hr{
+	width: 50%;
+	opacity: 0.25;
+}
+.logo{
+	height: 10vmin;
+	width: 10vmin;
+	margin: 3vmin 10vmin 0 8vmin;
+}
+.slogo{
+	height: 5vmin;
+	width: 5vmin;
+	margin: 0 6vmin 0 5vmin;
+}
+.xslogo{
+	height: 3vmin;
+	width: 3vmin;
+	margin: 4vh 3vw 3vh 0;
+}
+
+
+/*=====================
+ Chord Display Elements
+=====================*/
+.chordBlock{
+	color: white;
+	background-color: #3071A7;
+	height: 15vmin;
+	width: 17vmin;
+	display: inline-block;
+	border: 1px solid LightSteelBlue;
+	border-radius: 1vmin;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	text-align: center;
+	line-height: 15vmin;
+	font-size: 5vmin;
+	margin: 1vmin 0.25vmin 1vmin 0.25vmin;
+	transition: all 200ms ease-out;
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	-ie-transition: all 200ms ease-out;
+	-ms-user-select: none; /* Don't Allow Text Selection */
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+
+}
+.chordBlock:first-letter{
+	font-size: 6vmin;
+}
+.currentChord{
+	box-shadow: 0 0 10px #142634, 0 0 20px #142634;
+	background-color: #DEF;
+	color: black;
+}
+#chords{
+	left: 5vw;
+	right: 5vw;
+	z-index: 2;
+}
+#more{
+	color: white;
+	background: #3071A7;
+    background: -webkit-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+    background: -o-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+    background: -moz-linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+    background: linear-gradient(-75deg, LightSlateGray, SteelBlue, #3071A7, LightSlateGray);
+	height: 15vmin;
+	width: 17vmin;
+	display: inline-block;
+	border: 1px solid LightSteelBlue;
+	border-radius: 1vmin;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	text-align: center;
+	line-height: 15vmin;
+	font-size: 6vmin;
+	margin: 1vmin 0.25vmin 1vmin 0.25vmin;
+	transition: all 2000ms;
+	-moz-transition: all 2000ms;
+	-o-transition: all 2000ms;
+	-ie-transition: all 2000ms;
+	-webkit-transition: all 2000ms;
+}
+#directionsOverlay{
+	left: 0;
+	z-index: 0;
+	width: 100vw;
+	height: 100%;
+	text-align: center;
+	position: fixed;
+	float: top;
+	opacity: 0.5;
+}
+
+
+
+/*=====================
+	Note Animations
+=====================*/
+.note{
+	transition: all 40s;
+	-moz-transition: all 40s;
+	-o-transition: all 40s;
+	-ie-transition: all 40s;
+	-webkit-transition: all 40s;
+}
+
+
+/*=====================
+	Title Headings
+=====================*/
+#songTitle{
+	font-size: 5vmin;
+}
+h1.title{
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	position: fixed;
+	margin: auto;
+	top: calc(40vh - 12vw - 7vh - 3vmin);
+	text-align: center;
+	color: LightSteelBlue;	
+	font-size: 12vw;
+	transition: all 1500ms ease-in;
+	-moz-transition: all 1500ms ease-in;
+	-o-transition: all 1500ms ease-in;
+	-webkit-transition: all 1500ms ease-in;
+	-ie-transition: all 1500ms ease-in;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	text-transform: uppercase;
+	text-rendering: optimizeLegibility;
+}
+h1.smalltitle{
+	color: LightSteelBlue;	
+	font-size: 7vw;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	text-transform: uppercase;
+	text-rendering: optimizeLegibility;
+}
+h1.smallshadow{ /* modified from http://codepen.io/juanbrujo/pen/yGpAK */
+	letter-spacing: .15em;
+	text-shadow: 
+		0.05vmin -0.05vmin 0 #767676, -0.05vmin 0.1vmin 0.05vmin #737272, 
+		-0.1vmin 0.2vmin 0.05vmin #767474, -0.15vmin 0.3vmin 0.05vmin #787777, 
+		-0.2vmin 0.4vmin 0.05vmin #7b7a7a, -0.25vmin 0.5vmin 0.05vmin #7f7d7d, 
+		-0.3vmin 0.6vmin 0.05vmin #828181, -0.35vmin 0.7vmin 0.05vmin #868585, 
+		-0.4vmin 0.8vmin 0.05vmin #8b8a89, -0.45vmin 0.9vmin 0.05vmin #8f8e8d, 
+		-0.5vmin 1.0vmin 0.05vmin #949392, -0.55vmin 1.1vmin 0.05vmin #999897, 
+		-0.6vmin 1.2vmin 0.05vmin #9e9c9c, -0.65vmin 1.3vmin 0.05vmin #a3a1a1, 
+		-0.7vmin 1.4vmin 0.05vmin #a8a6a6, -0.75vmin 1.5vmin 0.05vmin #adabab, 
+		-0.8vmin 1.6vmin 0.05vmin #b2b1b0, -0.85vmin 1.7vmin 0.05vmin #b7b6b5, 
+		-0.9vmin 1.8vmin 0.05vmin #bcbbba, -0.95vmin 1.9vmin 0.05vmin #c1bfbf, 
+		-1.0vmin 2.0vmin 0.05vmin #c6c4c4, -1.05vmin 2.1vmin 0.05vmin #cbc9c8, 
+		-1.1vmin 2.2vmin 0.05vmin #cfcdcd, -1.15vmin 2.3vmin 0.05vmin #d4d2d1, 
+		-1.2vmin 2.4vmin 0.05vmin #d8d6d5, -1.25vmin 2.5vmin 0.05vmin #dbdad9, 
+		-1.3vmin 2.6vmin 0.05vmin #dfdddc, -1.35vmin 2.7vmin 0.05vmin #e2e0df, 
+		-1.4vmin 2.8vmin 0.05vmin #e4e3e2, -1vmin 1vmin 5vmin LightSteelBlue;
+
+}
+h1.elegantshadow { /* modified from http://codepen.io/juanbrujo/pen/yGpAK */
+    letter-spacing: .15em;
+    text-shadow: 
+		0.1vmin -0.1vmin 0 #767676, -0.1vmin 0.2vmin 0.1vmin #737272, 
+		-0.2vmin 0.4vmin 0.1vmin #767474, -0.3vmin 0.6vmin 0.1vmin #787777, 
+		-0.4vmin 0.8vmin 0.1vmin #7b7a7a, -0.5vmin 1.0vmin 0.1vmin #7f7d7d, 
+		-0.6vmin 1.2vmin 0.1vmin #828181, -0.7vmin 1.4vmin 0.1vmin #868585, 
+		-0.8vmin 1.6vmin 0.1vmin #8b8a89, -0.9vmin 1.8vmin 0.1vmin #8f8e8d, 
+		-1.0vmin 2.0vmin 0.1vmin #949392, -1.1vmin 2.2vmin 0.1vmin #999897, 
+		-1.2vmin 2.4vmin 0.1vmin #9e9c9c, -1.3vmin 2.6vmin 0.1vmin #a3a1a1, 
+		-1.4vmin 2.8vmin 0.1vmin #a8a6a6, -1.5vmin 3.0vmin 0.1vmin #adabab, 
+		-1.6vmin 3.2vmin 0.1vmin #b2b1b0, -1.7vmin 3.4vmin 0.1vmin #b7b6b5, 
+		-1.8vmin 3.6vmin 0.1vmin #bcbbba, -1.9vmin 3.8vmin 0.1vmin #c1bfbf, 
+		-2.0vmin 4.0vmin 0.1vmin #c6c4c4, -2.1vmin 4.2vmin 0.1vmin #cbc9c8, 
+		-2.2vmin 4.4vmin 0.1vmin #cfcdcd, -2.3vmin 4.6vmin 0.1vmin #d4d2d1, 
+		-2.4vmin 4.8vmin 0.1vmin #d8d6d5, -2.5vmin 5.0vmin 0.1vmin #dbdad9, 
+		-2.6vmin 5.2vmin 0.1vmin #dfdddc, -2.7vmin 5.4vmin 0.1vmin #e2e0df, 
+		-2.8vmin 5.6vmin 0.1vmin #e4e3e2, -1vmin 1vmin 5vmin LightSteelBlue, 
+		-2vmin 2vmin 10vmin white, -4vmin 4vmin 15vmin LightSteelBlue;
+}
+
+
+/*=====================
+JQuery Mobile Overrides
+=====================*/
+#chords .ui-content{
+    overflow:hidden;
+}
+.ui-footer{
+	height: 22vmin;
+}
+.ui-footer .ui-btn{
+	height: 7vmin;
+	width: 31vw;
+	display: inline-block;
+}
+.ui-btn{
+	margin: 0;
+}
+.ui-footer .ui-btn-text{
+	font-size: 4vmin;
+	line-height: 7vmin;
+}
+.ui-slider-input {
+    display : none !important;
+}
+.full-width-slider{
+	margin: 2vmin 0 2vmin 0;
+}
+.ui-footer .ui-btn-inner{
+	padding: 0;
+	line-height: 7vmin;
+	font-size: 4vmin;
+}
+.ui-footer .ui-fullsize .ui-btn-inner{
+	padding: 0;
+}
+input.ui-input-text{
+	padding: 0;
+}
+.footer {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+}
+#splash .ui-content{
+	padding: 0;
+}
+div.ui-slider {
+	margin: 0 2vw 0 2vw;
+}
+div.ui-slider-mini {
+    height: 2.5vh;
+    margin-left: 2vh;
+    top: 3vh;
+	text-align: center;
+}
+div.ui-slider-mini a.ui-slider-handle {
+    height: 5vh;
+    width: 5vh;
+    margin: -2.5vh 0 0 -2.5vh;
+	text-align: center;
+}
+.ui-slider-handle .ui-btn-inner{
+	overflow: visible;
+	text-align: center;
+}
+.ui-slider-handle .ui-btn-inner .ui-btn-text{
+	left: 1.5vmin;
+	text-align: center;
+}
+
+/*=====================
+Animation & Transforms
+=====================*/
+.spunY{
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+		-o-transform: rotateY(180deg);
+		-ie-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+}
+.spinY{
+	animation: rotateHalfY 1s linear;
+}
+.spinYLoop{
+	animation: rotateFullY 8s linear infinite;
+}
+@keyframes rotateHalfY {
+    from {
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+		-o-transform: rotateY(180deg);
+		-ie-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+	}
+    to {
+		-webkit-transform: rotateY(360deg);
+		-moz-transform: rotateY(360deg);
+		-o-transform: rotateY(360deg);
+		-ie-transform: rotateY(360deg);
+		transform: rotateY(360deg);
+	}
+}
+@keyframes rotateFullY {
+    from {
+		-webkit-transform: rotateY(0);
+		-moz-transform: rotateY(0);
+		-o-transform: rotateY(0);
+		-ie-transform: rotateY(0);
+		transform: rotateY(0);
+	}
+    to {
+		-webkit-transform: rotateY(360deg);
+		-moz-transform: rotateY(360deg);
+		-o-transform: rotateY(360deg);
+		-ie-transform: rotateY(360deg);
+		transform: rotateY(360deg);
+	}
+}

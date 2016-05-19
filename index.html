@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Segno</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+		<script src="jquerymobile-swipeupdown/jquerymobile-swipeupdown.js"></script>
+		<script src="playbackScripts.js"></script>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+	
+<!-- PAGE 1 - SPLASH -->
+		<div data-role="page" id="splash">
+			<div data-role="content">
+				<h1 class="elegantshadow title">
+					<img class="xslogo spunY" src="segno.svg" />
+					<img class="xslogo spunY" src="segno.svg" />
+					<img class="xslogo spunY" src="segno.svg" />
+					<img class="xslogo spunY" src="segno.svg" />
+					<br>
+					Segno
+					<br>
+					<img class="xslogo spunY" src="segno.svg" />
+					<img class="xslogo spunY" src="segno.svg" />
+					<img class="xslogo spunY" src="segno.svg" />
+					<img class="xslogo spunY" src="segno.svg" />
+				</h1>
+				<div id="symbols"></div>
+			</div>
+		</div>
+		
+<!-- PAGE 2 - HOME -->		
+		<div data-role="page" id="home">
+			<div class="center" data-role="header" data-theme="a" >
+				<h1 class="smalltitle center">Segno</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a class="ui-btn-active ui-state-persist" href="#home" data-icon="home">Compose</a></li>
+						<li><a href="#settings" data-icon="gear">Settings</a></li>
+						<li><a href="#info" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				<input data-theme="d" type="text" id="songTitle" class="center" placeholder="Untitled"></input>
+				<div class="center" id="chords"><!-- FLAT 9837   SHARP 9839 -->
+					<div id="more">+</div>
+					<section id="directionsOverlay" class="center">
+						<p><strong>Add:</strong> Press <strong>&nbsp;+&nbsp;</strong></p>
+						<p><strong>Tone:</strong> Tap chord</p>
+						<p><strong>Modality:</strong> Swipe chord &larr;&nbsp;&rarr;</p>
+						<p><strong>Delete:</strong> Long-press</p>
+					</section>
+					
+				</div>				
+				<div id="playerContainer">
+					<audio id="player">
+						<source id="mp3_src" src="chords/mp3/Rest.mp3" type="audio/mp3">
+						<source id="ogg_src" src="chords/ogg/Rest.ogg" type="audio/ogg">
+						Your Device Does Not Support The Audio Element
+					</audio>
+				</div>	
+			</div>
+			<div class="center" data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div id="controls" class="center">
+					<div>
+						<button id="play" data-role="button">Play</button>
+						<button id="stop" data-role="button">Stop</button>
+						<button id="clear" data-role="button">Clear</button>
+					</div>
+					<div class="full-width-slider">
+						<label for="volume" class="ui-hidden-accessible">Volume:</label>
+						<input type="range" name="volume" id="volume" value="75" min="0" max="100" data-highlight="true" data-mini="true">
+					</div>
+				</div>	
+			</div>
+		</div>
+	
+<!-- PAGE 3 - SETTINGS -->
+		<div data-role="page" id="settings">
+			<div class="center" data-role="header">
+				<h1 class="smalltitle center">Segno</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Compose</a></li>
+						<li><a class="ui-btn-active ui-state-persist" href="#settings" data-icon="gear">Settings</a></li>
+						<li><a href="#info" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="center" data-role="content">
+				<h1>
+					No Settings Yet...
+				</h1>
+				<button id="loadExample" data-theme="b" data-role="button">
+					Load Example
+				</button>
+				<h3>
+					More features are on the way:
+				</h3>
+				<ul>
+					<li>Auto Progressions (Circle Of Fifths)</li>
+					<li>Advanced Audio Engine</li>
+					<li>More Instruments</li>
+					<li>Key Signatures</li>
+					<li>Note Durations</li>
+					<li>Transposition</li>
+					<li>Rearrangement</li>
+					<li>Tempo Change</li>
+					<li>Save & Load</li>
+					<li>Effects</li>
+					<li>Loops</li>
+					<li>More</li>
+					
+				</ul>
+			</div>
+		</div>
+		
+<!-- PAGE 4 - INFO -->
+		<div data-role="page" id="info">
+			<div class="center" data-role="header">
+				<h1 class="smalltitle center">Segno</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Compose</a></li>
+						<li><a href="#settings" data-icon="gear">Settings</a></li>
+						<li><a class="ui-btn-active ui-state-persist" href="#info" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="center" data-role="content">
+				<h1 id="pageTitle" class="smallshadow smalltitle center">
+					<img class="slogo spinYLoop" src="segno.svg" />
+					Segno
+					<img class="slogo spinYLoop" src="segno.svg" />
+				</h1>
+				<h2 id="phonetic1">[ se&middot;gno ]</h2>
+				<h4 id="phonetic2">\ <em>seyn</em>-yoh \</h4>
+				<hr>
+				<section id="directions">
+					<h2>Directions:</h2>
+					<p><strong>Add:</strong> Press <strong>&nbsp;+&nbsp;</strong></p>
+					<p><strong>Tone:</strong> Tap chord</p>
+					<p><strong>Modality:</strong> Swipe chord &larr;&nbsp;&rarr;</p>
+					<p><strong>Delete:</strong> Long-press</p>
+				</section>
+				<hr>
+				<section id="accreditation">
+					<p>
+						<h1>Wesley To</h1>
+						<a data-role="button" data-inline="true" href="mailto:wes_t14@hotmail.com">Contact Me</a>
+					</p>
+					<hr>
+					<h5>Software used under MIT License</h5>
+					<ul>
+						<li>jQuery</li>
+						<li>jQuery Mobile</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
