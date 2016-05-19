@@ -29,6 +29,9 @@ h4 {
 hr{
 	width: 50%;
 	opacity: 0.25;
+	border-radius: 1vmin;
+	background-color: black;
+	height: 0.5vmin;
 }
 .logo{
 	height: 10vmin;
