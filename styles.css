@@ -68,8 +68,8 @@ hr{
 	font-size: 6vmin;
 	border-radius: 1vmin;
 	font-size: 5vmin;
-	height: 7vmin;
-	line-height: 7vmin;
+	height: 10vmin;
+	line-height: 10vmin;
 }
 .chordBlock, #more{
 	cursor: pointer;

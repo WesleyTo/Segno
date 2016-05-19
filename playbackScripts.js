@@ -1,78 +1,16 @@
+/*=================
+   INITIAL SETUP
+=================*/
 $(document).ready(function(){
-    $.ajax({url: "/chords/mp3/A.mp3"});
-	$.ajax({url: "/chords/mp3/B.mp3"});
-	$.ajax({url: "/chords/mp3/C.mp3"});
-	$.ajax({url: "/chords/mp3/D.mp3"});
-	$.ajax({url: "/chords/mp3/E.mp3"});
-	$.ajax({url: "/chords/mp3/F.mp3"});
-	$.ajax({url: "/chords/mp3/G.mp3"});
-	$.ajax({url: "/chords/mp3/Ab.mp3"});
-	$.ajax({url: "/chords/mp3/Bb.mp3"});
-	$.ajax({url: "/chords/mp3/Db.mp3"});
-	$.ajax({url: "/chords/mp3/Eb.mp3"});
-	$.ajax({url: "/chords/mp3/Gb.mp3"});
-    $.ajax({url: "/chords/mp3/Am.mp3"});
-	$.ajax({url: "/chords/mp3/Bm.mp3"});
-	$.ajax({url: "/chords/mp3/Cm.mp3"});
-	$.ajax({url: "/chords/mp3/Dm.mp3"});
-	$.ajax({url: "/chords/mp3/Em.mp3"});
-	$.ajax({url: "/chords/mp3/Fm.mp3"});
-	$.ajax({url: "/chords/mp3/Gm.mp3"});
-	$.ajax({url: "/chords/mp3/Abm.mp3"});
-	$.ajax({url: "/chords/mp3/Bbm.mp3"});
-	$.ajax({url: "/chords/mp3/Dbm.mp3"});
-	$.ajax({url: "/chords/mp3/Ebm.mp3"});
-	$.ajax({url: "/chords/mp3/Gbm.mp3"});
-    $.ajax({url: "/chords/mp3/Adim.mp3"});
-	$.ajax({url: "/chords/mp3/Bdim.mp3"});
-	$.ajax({url: "/chords/mp3/Cdim.mp3"});
-	$.ajax({url: "/chords/mp3/Ddim.mp3"});
-	$.ajax({url: "/chords/mp3/Edim.mp3"});
-	$.ajax({url: "/chords/mp3/Fdim.mp3"});
-	$.ajax({url: "/chords/mp3/Gdim.mp3"});
-	$.ajax({url: "/chords/mp3/Abdim.mp3"});
-	$.ajax({url: "/chords/mp3/Bbdim.mp3"});
-	$.ajax({url: "/chords/mp3/Dbdim.mp3"});
-	$.ajax({url: "/chords/mp3/Ebdim.mp3"});
-	$.ajax({url: "/chords/mp3/Gbdim.mp3"});	
-	$.ajax({url: "/chords/mp3/Rest.mp3"});
-    $.ajax({url: "/chords/ogg/A.ogg"});
-	$.ajax({url: "/chords/ogg/B.ogg"});
-	$.ajax({url: "/chords/ogg/C.ogg"});
-	$.ajax({url: "/chords/ogg/D.ogg"});
-	$.ajax({url: "/chords/ogg/E.ogg"});
-	$.ajax({url: "/chords/ogg/F.ogg"});
-	$.ajax({url: "/chords/ogg/G.ogg"});
-	$.ajax({url: "/chords/ogg/Ab.ogg"});
-	$.ajax({url: "/chords/ogg/Bb.ogg"});
-	$.ajax({url: "/chords/ogg/Db.ogg"});
-	$.ajax({url: "/chords/ogg/Eb.ogg"});
-	$.ajax({url: "/chords/ogg/Gb.ogg"});
-    $.ajax({url: "/chords/ogg/Am.ogg"});
-	$.ajax({url: "/chords/ogg/Bm.ogg"});
-	$.ajax({url: "/chords/ogg/Cm.ogg"});
-	$.ajax({url: "/chords/ogg/Dm.ogg"});
-	$.ajax({url: "/chords/ogg/Em.ogg"});
-	$.ajax({url: "/chords/ogg/Fm.ogg"});
-	$.ajax({url: "/chords/ogg/Gm.ogg"});
-	$.ajax({url: "/chords/ogg/Abm.ogg"});
-	$.ajax({url: "/chords/ogg/Bbm.ogg"});
-	$.ajax({url: "/chords/ogg/Dbm.ogg"});
-	$.ajax({url: "/chords/ogg/Ebm.ogg"});
-	$.ajax({url: "/chords/ogg/Gbm.ogg"});
-    $.ajax({url: "/chords/ogg/Adim.ogg"});
-	$.ajax({url: "/chords/ogg/Bdim.ogg"});
-	$.ajax({url: "/chords/ogg/Cdim.ogg"});
-	$.ajax({url: "/chords/ogg/Ddim.ogg"});
-	$.ajax({url: "/chords/ogg/Edim.ogg"});
-	$.ajax({url: "/chords/ogg/Fdim.ogg"});
-	$.ajax({url: "/chords/ogg/Gdim.ogg"});
-	$.ajax({url: "/chords/ogg/Abdim.ogg"});
-	$.ajax({url: "/chords/ogg/Bbdim.ogg"});
-	$.ajax({url: "/chords/ogg/Dbdim.ogg"});
-	$.ajax({url: "/chords/ogg/Ebdim.ogg"});
-	$.ajax({url: "/chords/ogg/Gbdim.ogg"});
-	$.ajax({url: "/chords/ogg/Rest.ogg"});
+	$("body").nodoubletapzoom();
+	var chords = ["A", "B", "C", "D", "E", "F", "G", "Ab", "Bb", "Db", "Eb", "Gb"];
+	var variations = ['', 'm', 'dim'];
+	$(chords).each(function(i, chord){
+		$(variations).each(function(j, variation){
+			$.ajax({url: "/chords/mp3/" + chord + variation + ".mp3"});
+			$.ajax({url: "/chords/ogg/" + chord + variation + ".ogg"});
+		});
+	});
 });
 
 /*=================
@@ -356,3 +294,18 @@ $.fn.scrollView = function (offsetVal) {
 		}, 750);
 	});
 }
+$.fn.nodoubletapzoom = function() {
+    $(this).bind('touchstart', function preventZoom(e){
+        var t2 = e.timeStamp;
+        var t1 = $(this).data('lastTouch') || t2;
+        var dt = t2 - t1;
+        var fingers = e.originalEvent.touches.length;
+        $(this).data('lastTouch', t2);
+        if (!dt || dt > 500 || fingers > 1){
+            return; // not double-tap
+        }
+        e.preventDefault(); // double tap - prevent the zoom
+        // also synthesize click events we just swallowed up
+        $(e.target).trigger('click');
+    });
+};
