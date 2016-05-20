@@ -69,7 +69,13 @@ $(document).on("pageinit", "#home", function(){
 			var player = $("#player");
 			var counter = 0;
 			var chords = $(".chordBlock").map(function(){
-				return $(this).data("type");
+				var chord = $(this).data("type");
+				if (chord == "Rest"){
+					return $(this).data("type");
+				}
+				else{
+					return $(this).data("type") + $(this).data("mode");;
+				}
 			}).get();
 			startPlayback(player, chords, counter);
 			counter++;
@@ -96,26 +102,42 @@ $(document).on("pageinit", "#home", function(){
 		setVolume();
 	});
 	$("#more").on('click', function(){		// Handle CLEAR button presses
-		$("#directionsOverlay").fadeOut();
 		addChord("C");
 	});
 	$("#chords").on('taphold', '.chordBlock', function(){
 		$(this).remove();
 	});
 	$('#chords').on( "tap", ".chordBlock", function( event ) {
-		var newChord = nextChord($(this).data("type"), true);
-		$(this).html(chordEntity(newChord));
-		$(this).data("type", newChord);
+		var currTone = $(this).data("type");
+		var newTone = nextType(currTone, true);
+		$(this).data("type", newTone);	
+		if (newTone == "Rest"){
+			$(this).html(chordEntity(newTone));
+		}
+		else{
+			$(this).html(chordEntity(newTone + $(this).data("mode")));
+		}
     });
 	$('#chords').on("swiperight", ".chordBlock", function( event ) {
-		var newChord = nextModality($(this).data("type"), true);
-		$(this).html(chordEntity(newChord));
-		$(this).data("type", newChord);
+		var newMode = nextMode($(this).data("mode"), true);
+		$(this).data("mode", newMode);
+		var currType = $(this).data("type");
+		if (currType == "Rest"){
+			$(this).html(chordEntity($(this).data("type")));
+		}
+		else{
+			$(this).html(chordEntity($(this).data("type") + newMode));
+		}
     });
 	$('#chords').on("swipeleft", ".chordBlock", function( event ) {
-		var newChord = nextModality($(this).data("type"), false);
-		$(this).html(chordEntity(newChord));
-		$(this).data("type", newChord);
+		var newMode = nextMode($(this).data("mode"), false);
+		var currType = $(this).data("type");
+		if (currType == "Rest"){
+			$(this).html(chordEntity($(this).data("type")));
+		}
+		else{
+			$(this).html(chordEntity($(this).data("type") + newMode));
+		}
     });
 });
 
@@ -192,6 +214,7 @@ function clearChords(){
 	$(".chordBlock").each(function(i, chordBlock){
 		$(chordBlock).remove();
 	});
+	showDirections();
 }
 function loadChords(chords){
 	/* LOAD MULTIPLE CHORDS INTO CHORD DISPLAY */
@@ -202,47 +225,42 @@ function loadChords(chords){
 }
 function addChord(chord){
 	/* ADD A SINGLE CHORD INTO CHORD DISPLAY */
-	var sharps = {'A#':'Bb', 'C#':'Db', 'D#':'Eb', 'F#':'Gb', 'G#':'Ab',
-		'A#m':'Bbm', 'C#m':'Dbm', 'D#m':'Ebm', 'F#m':'Gbm', 'G#m':'Abm',
-		'A#dim':'Bbdim', 'C#dim':'Dbdim', 'D#dim':'Ebdim', 'F#dim':'Gbdim', 'G#dim':'Abdim'}
-	var chordType = sharps[chord];
-	if (chordType === undefined){var chordType = chord;}
-	var newChord = "<div class='chordBlock' data-type='" + chordType + "'>" + chord + "</div>";
+	var tone = chord.replace('dim', '').replace('m', '');
+	var modality = chord.replace(tone, '');
+	var sharps = {'A#':'Bb', 'C#':'Db', 'D#':'Eb', 'F#':'Gb', 'G#':'Ab'}
+	var chordType = sharps[tone];
+	if (chordType === undefined){var chordType = tone;}
+	var newChord = "<div class='chordBlock' data-mode='" + modality + "' data-type='" + chordType + "'>" + chord + "</div>";
 	$(newChord).insertBefore("#more").hide().fadeIn(100);
+	hideDirections();
 }
-function nextChord(chord, next){
+function nextType(type, next){
 	/* RETURNS THE NEXT/PREV NOTE, SAME MODALITY */
 	var change = 1;
 	if (!next){ change = -1; }
 	var chords = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'Rest'];
-	var sharps = {'A#':'Bb', 'C#':'Db', 'D#':'Eb', 'F#':'Gb', 'G#':'Ab'}
-	var tone = chord.replace('dim', '').replace('m', '');
-	var modality = chord.replace(tone, '');
-	var baseTone = sharps[tone];
+	var sharps = {'A#':'Bb', 'C#':'Db', 'D#':'Eb', 'F#':'Gb', 'G#':'Ab'};
+	var baseTone = sharps[type];
 	if (baseTone === undefined){
-		var baseTone = tone;
+		var baseTone = type;
 	}
 	var index = $.inArray(baseTone, chords);
 	index = (index + change + $(chords).size()) % $(chords).size();
-	var nextTone = chords[index] + modality;
-	return nextTone;	
+	return chords[index];
 }
 function chordEntity(chord){
 	/* REPLACE b WITH flat SYMBOL */
 	var s = chord.replace("b", "&#9837;");
 	return $('<textarea />').html(s).text();;
 }
-function nextModality(chord, next){
+function nextMode(mode, next){
 	/* RETURNS THE SAME NOTE WITH A DIFFERENT MODALITY */
 	var change = 1;
 	if (!next){ change = -1; }
-	var modalities = ['', 'm', 'dim'];	
-	var tone = chord.replace('dim', '').replace('m', '');
-	var modality = chord.replace(tone, '');
-	var index = $.inArray(modality, modalities);
+	var modalities = ['', 'm', 'dim'];
+	var index = $.inArray(mode, modalities);
 	index = (index + change + $(modalities).size()) % $(modalities).size();
-	var nextTone = tone + modalities[index];
-	return nextTone;
+	return modalities[index];
 }
 
 /*=================
@@ -253,6 +271,12 @@ function setVolume(){
 	var vol = $("#volume").attr("value");
 	$(".ui-slider").find(".ui-btn-text").html(vol).css("font-size", (1.25 + 1.25 * vol/100) + 'vh');
 	$("#player").prop("volume", vol/100);
+}
+function hideDirections(){
+	$("#directionsOverlay").fadeOut();
+}
+function showDirections(){
+	$("#directionsOverlay").fadeIn();
 }
 function loadExample(){
 	/* LOAD AN EXAMPLE CHORD PROGRESSION */
