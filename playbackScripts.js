@@ -235,7 +235,7 @@ function addChord(chord){
 	hideDirections();
 }
 function nextType(type, next){
-	/* RETURNS THE NEXT/PREV NOTE, SAME MODALITY */
+	/* RETURNS THE NEXT/PREV NOTE */
 	var change = 1;
 	if (!next){ change = -1; }
 	var chords = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'Rest'];
@@ -254,7 +254,7 @@ function chordEntity(chord){
 	return $('<textarea />').html(s).text();;
 }
 function nextMode(mode, next){
-	/* RETURNS THE SAME NOTE WITH A DIFFERENT MODALITY */
+	/* RETURNS THE NEXT/PREV MODE */
 	var change = 1;
 	if (!next){ change = -1; }
 	var modalities = ['', 'm', 'dim'];
