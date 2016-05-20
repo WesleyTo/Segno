@@ -188,6 +188,7 @@ function stopPlayback(){
 	  CHORDS
 =================*/
 function clearChords(){
+	/* CLEAR THE CHORD DISPLAY */
 	$(".chordBlock").each(function(i, chordBlock){
 		$(chordBlock).remove();
 	});
@@ -210,9 +211,10 @@ function addChord(chord){
 	$(newChord).insertBefore("#more").hide().fadeIn(100);
 }
 function nextChord(chord, next){
+	/* RETURNS THE NEXT/PREV NOTE, SAME MODALITY */
 	var change = 1;
 	if (!next){ change = -1; }
-	var chords = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'];
+	var chords = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'Rest'];
 	var sharps = {'A#':'Bb', 'C#':'Db', 'D#':'Eb', 'F#':'Gb', 'G#':'Ab'}
 	var tone = chord.replace('dim', '').replace('m', '');
 	var modality = chord.replace(tone, '');
@@ -226,10 +228,12 @@ function nextChord(chord, next){
 	return nextTone;	
 }
 function chordEntity(chord){
+	/* REPLACE b WITH flat SYMBOL */
 	var s = chord.replace("b", "&#9837;");
 	return $('<textarea />').html(s).text();;
 }
 function nextModality(chord, next){
+	/* RETURNS THE SAME NOTE WITH A DIFFERENT MODALITY */
 	var change = 1;
 	if (!next){ change = -1; }
 	var modalities = ['', 'm', 'dim'];	
@@ -253,7 +257,7 @@ function setVolume(){
 function loadExample(){
 	/* LOAD AN EXAMPLE CHORD PROGRESSION */
 	stopPlayback();
-	var choice = Math.floor(Math.random() * 6);
+	var choice = Math.floor(Math.random() * 7);
 	var title = '';
 	var chords = [];
 	switch (choice) {
@@ -271,10 +275,13 @@ function loadExample(){
 			title = "Weezer - Island In The Sun"; break;
 		case 4:
 			chords = ["G", "G", "G", "G", "C", "C", "D", "D", "G", "G", "G", "G", "C", "C", "D", "D", "Em", "Em", "D", "D", "C", "C", "G", "G", "Em", "Em", "D", "D", "C", "C", "G", "G", "Em", "Em", "G", "G", "Em", "Em", "G", "G", "Em", "Em", "D", "D", "G", "G", "C", "D"];
-			title = "Green Day - Time Of Your life";
+			title = "Green Day - Time Of Your life"; break;
 		case 5:
 			chords = ["D", "A", "Bm", "Gbm", "G", "D", "G", "A", "D", "A", "Bm", "Gbm", "G", "D", "G", "A", "D", "A", "Bm", "Gbm", "G", "D", "G", "A", "D", "A", "Bm", "Gbm", "G", "D", "G", "A"];
-			title = "Pachelbel - Canon In D";
+			title = "Pachelbel - Canon In D"; break;
+		case 6:
+			chords = ["G", "D", "Em", "Rest", "Am", "Rest", "C", "Rest", "Em", "Rest", "Rest", "D", "Rest", "Rest", "G", "D", "Em", "Rest", "Am", "Rest", "C", "Rest", "Em", "Rest", "C", "Rest", "D", "Rest", "Rest", "Em", "Em", "Am", "Am", "Em", "Em", "Am", "Am", "C", "G", "Am", "Rest", "C", "Rest", "D", "Rest"];
+			title = "Don McLean - American Pie";
 	}
 	loadChords(chords);
 	setTitle(title);
