@@ -305,7 +305,7 @@ function loadExample(){
 			title = "Pachelbel - Canon In D"; break;
 		case 6:
 			chords = ["G", "D", "Em", "Rest", "Am", "Rest", "C", "Rest", "Em", "Rest", "Rest", "D", "Rest", "Rest", "G", "D", "Em", "Rest", "Am", "Rest", "C", "Rest", "Em", "Rest", "C", "Rest", "D", "Rest", "Rest", "Em", "Em", "Am", "Am", "Em", "Em", "Am", "Am", "C", "G", "Am", "Rest", "C", "Rest", "D", "Rest"];
-			title = "Don McLean - American Pie";
+			title = "Don McLean - American Pie"; break;
 		case 7:
 			chords = ["G", "Em", "C", "D", "G", "Em", "C", "D", "G", "Em", "C", "D", "G", "Em", "C", "D", "G", "Bm", "Em", "C", "G", "Em", "C", "Bm", "Am", "D", "G", "Em", "C", "D", "G"];
 			title = "Charles Trenet - La Mer (Beyond The Sea)";
