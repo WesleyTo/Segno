@@ -1,0 +1,45 @@
+{"examples": {
+	"length": 8, 
+	"songs":
+	[
+	{
+		"id": "0",
+		"title": "The Beatles - Let It Be",
+		"chords": "C C G G Am Am F F C C G G Am F C Rest C C G G Am Am F F C C G G Am F C Rest"
+	},
+	{
+		"id": "1",
+		"title": "Bob Dylan - Knocking On Heavens Door",
+		"chords": "G G D D C C C C G G D D C C C C G G D D Am Am Am Am G G D D Am Am Am Am"
+	},
+	{
+		"id": "2",
+		"title": "Steve Miller - The Joker",
+		"chords": "G G C C D D C C G G C C D D C C G G C C D D C C G G C C D D C C"
+	},
+	{
+		"id": "3",
+		"title": "Weezer - Island In The Sun ",
+		"chords": "Em Em Am Am D D G G Em Em Am Am D D G G Em Em Am Am D D G G Em Em Am Am D D G G"
+	},
+	{
+		"id": "4",
+		"title": "Green Day - Time Of Your life",
+		"chords": "G G G G C C D D G G G G C C D D Em Em D D C C G G Em Em D D C C G G Em Em G G Em Em G G Em Em D D G G C D"
+	},
+	{
+		"id": "5",
+		"title": "Pachelbel - Canon In D",
+		"chords": "D A Bm Gbm G D G A D A Bm Gbm G D G A D A Bm Gbm G D G A D A Bm Gbm G D G A"
+	},
+	{
+		"id": "6",
+		"title": "Don McLean - American Pie",
+		"chords": "G D Em Rest Am Rest C Rest Em Rest Rest D Rest Rest G D Em Rest Am Rest C Rest Em Rest C Rest D Rest Rest Em Em Am Am Em Em Am Am C G Am Rest C Rest D Rest"
+	},
+	{
+		"id": "7",
+		"title": "Charles Trenet - La Mer (Beyond The Sea)",
+		"chords": "G Em C D G Em C D G Em C D G Em C D G Bm Em C G Em C Bm Am D G Em C D G"
+	}
+]}}

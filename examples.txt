@@ -1,8 +1,0 @@
-Ex0|C C G G Am Am F F C C G G Am F C Rest C C G G Am Am F F C C G G Am F C Rest|The Beatles - Let It Be
-Ex1|G G D D C C C C G G D D C C C C G G D D Am Am Am Am G G D D Am Am Am Am|Bob Dylan - Knocking On Heavens Door 
-Ex2|G G C C D D C C G G C C D D C C G G C C D D C C G G C C D D C C|Steve Miller - The Joker	
-Ex3|Em Em Am Am D D G G Em Em Am Am D D G G Em Em Am Am D D G G Em Em Am Am D D G G|Weezer - Island In The Sun 
-Ex4|G G G G C C D D G G G G C C D D Em Em D D C C G G Em Em D D C C G G Em Em G G Em Em G G Em Em D D G G C D|Green Day - Time Of Your life 
-Ex5|D A Bm Gbm G D G A D A Bm Gbm G D G A D A Bm Gbm G D G A D A Bm Gbm G D G A|Pachelbel - Canon In D 
-Ex6|G D Em Rest Am Rest C Rest Em Rest Rest D Rest Rest G D Em Rest Am Rest C Rest Em Rest C Rest D Rest Rest Em Em Am Am Em Em Am Am C G Am Rest C Rest D Rest|Don McLean - American Pie
-Ex7|G Em C D G Em C D G Em C D G Em C D G Bm Em C G Em C Bm Am D G Em C D G|Charles Trenet - La Mer

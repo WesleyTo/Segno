@@ -1,7 +1,7 @@
 /*=================
    INITIAL SETUP
 =================*/
-$(document).ready(function(){
+/* $(document).ready(function(){
 	$("body").nodoubletapzoom();
 	var chords = ["A", "B", "C", "D", "E", "F", "G", "Ab", "Bb", "Db", "Eb", "Gb"];
 	var variations = ['', 'm', 'dim'];
@@ -12,7 +12,7 @@ $(document).ready(function(){
 		});
 	});
 });
-
+ */
 /*=================
 	SPLASH PAGE
 =================*/
@@ -312,6 +312,17 @@ function loadExample(){
 	}
 	loadChords(chords);
 	setTitle(title);
+	/* DOESN'T WORK IN CHROME - CROSS ORIGIN REQUEST */
+	/* $.get("examples.json", function(data){
+		var examples = data.examples;
+		var choice = Math.floor(Math.random() * examples.length);
+		var song = examples.songs[choice];
+		var chords = song.chords.split(' ');
+		loadChords(chords);
+		setTitle(song.title);
+	}, "json"); */
+	
+	
 }
 function setTitle(title){
 	$("#songTitle").attr("value", title);
