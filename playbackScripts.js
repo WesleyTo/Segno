@@ -281,7 +281,7 @@ function showDirections(){
 function loadExample(){
 	/* LOAD AN EXAMPLE CHORD PROGRESSION */
 	stopPlayback();
-	var choice = Math.floor(Math.random() * 7);
+	var choice = Math.floor(Math.random() * 8);
 	var title = '';
 	var chords = [];
 	switch (choice) {
@@ -306,6 +306,9 @@ function loadExample(){
 		case 6:
 			chords = ["G", "D", "Em", "Rest", "Am", "Rest", "C", "Rest", "Em", "Rest", "Rest", "D", "Rest", "Rest", "G", "D", "Em", "Rest", "Am", "Rest", "C", "Rest", "Em", "Rest", "C", "Rest", "D", "Rest", "Rest", "Em", "Em", "Am", "Am", "Em", "Em", "Am", "Am", "C", "G", "Am", "Rest", "C", "Rest", "D", "Rest"];
 			title = "Don McLean - American Pie";
+		case 7:
+			chords = ["G", "Em", "C", "D", "G", "Em", "C", "D", "G", "Em", "C", "D", "G", "Em", "C", "D", "G", "Bm", "Em", "C", "G", "Em", "C", "Bm", "Am", "D", "G", "Em", "C", "D", "G"];
+			title = "Charles Trenet - La Mer (Beyond The Sea)";
 	}
 	loadChords(chords);
 	setTitle(title);
